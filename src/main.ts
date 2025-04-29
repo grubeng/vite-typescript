@@ -12,9 +12,13 @@ const footer = document.createElement("div");
 footer.innerHTML = Footer;
 
 const main = document.createElement("div");
-main.className = "main";
 main.innerHTML = Main;
 
 root.appendChild(header);
 root.appendChild(main);
 root.appendChild(footer);
+
+const charactersContent = document.createElement("div");
+charactersContent.classList.add("character-content");
+
+main.appendChild(charactersContent);
