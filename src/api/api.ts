@@ -1,10 +1,14 @@
-import { Character, CharacterResponse } from "./model/api.model";
+import { CharacterResponse } from "./model/api.model";
 
-async function fetchCharacters(): Promise<Character[]> {
-  const response = await fetch("https://rickandmortyapi.com/api/character");
+const baseCharactersUrl = "https://rickandmortyapi.com/api/character?";
+
+async function fetchCharacters(pageNumber: number): Promise<CharacterResponse> {
+  const url = `${baseCharactersUrl}?page=${pageNumber}`;
+
+  const response = await fetch(url);
   const content: CharacterResponse = await response.json();
 
-  return content.results;
+  return content;
 }
 
 export { fetchCharacters };
